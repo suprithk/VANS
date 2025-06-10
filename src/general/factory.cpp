@@ -8,6 +8,7 @@
 #include "nvram_system.h"
 #include "rmc.h"
 #include "rmw.h"
+#include "cxl.h"
 #include "utils.h"
 
 namespace vans::factory
@@ -30,6 +31,12 @@ make_single_component(const std::string &name, const root_config &cfg, unsigned 
         ret = std::make_shared<ait::ait>(cfg["ait"]);
     } else if (name == "nv_media") {
         ret = std::make_shared<nv_media>(cfg["nv_media"]);
+    } else if (name == "cxl_rc") {
+        ret = std::make_shared<cxl::rc>(cfg["cxl_rc"]);
+    } else if (name == "cxl_switch") {
+        ret = std::make_shared<cxl::sw>(cfg["cxl_switch"]);
+    } else if (name == "cxl_memory") {
+        ret = std::make_shared<cxl::memory_device>(cfg["cxl_memory"]);
     }
     ret->assign_id(component_id);
     return ret;
