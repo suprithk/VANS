@@ -94,7 +94,7 @@ template <typename T> class DRAM : public tick_able
             delete child;
     }
 
-    command decode(command cmd, const long unsigned int *addr)
+    command decode(command cmd, const uint64_t *addr)
     {
         auto child_id = addr[int(curr_level) + 1];
         if (prereq_table[int(cmd)]) {

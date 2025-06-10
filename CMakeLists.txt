@@ -38,6 +38,7 @@ add_executable(vans
                src/general/ddr4_system.h
                src/general/factory.cpp
                src/general/common.h
+               src/general/cxl.h
                )
 
 target_include_directories(vans
